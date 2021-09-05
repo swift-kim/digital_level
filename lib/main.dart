@@ -20,7 +20,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   late StreamSubscription<AccelerometerEvent> _listener;
   Queue<AccelerometerEvent> _recentEvents = Queue();
-  double _xPosition = 0;
+  double _xPosition = 0.1;
   double _yPosition = 0;
   double _xDegree = 0;
   double _yDegree = 0;
@@ -69,7 +69,7 @@ class _MainPageState extends State<MainPage> {
 
   Color get _backgroundColor {
     return Color.alphaBlend(
-      Colors.tealAccent.shade700.withOpacity(_backgroundOpacity),
+      Color(0xff00e3ce).withOpacity(_backgroundOpacity),
       Colors.white10,
     );
   }
@@ -96,7 +96,7 @@ class _MainPageState extends State<MainPage> {
             height: 70,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.white.withOpacity(0.6),
+              color: Colors.white.withOpacity(0.8),
             ),
           ),
         ),
@@ -108,7 +108,7 @@ class _MainPageState extends State<MainPage> {
           alignment: Alignment(-0.62, 0.62),
           child: TextBox('y\n${_yDegree.toStringAsFixed(1)}°'),
         ),
-        CrossScope(color: Colors.white.withOpacity(0.8)),
+        CrossScope(),
       ],
     );
   }
@@ -130,7 +130,7 @@ class TextBox extends StatelessWidget {
         style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w300,
-          color: Colors.white.withOpacity(0.8),
+          color: Colors.white,
           decoration: TextDecoration.none,
         ),
       ),
